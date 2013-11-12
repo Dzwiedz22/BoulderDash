@@ -1,0 +1,62 @@
+package boulderDash;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.ImageObserver;
+
+public class RysowaniePlanszy implements ImageObserver {
+
+	Plansze plansze = new Plansze();
+	Obrazki obrazki = new Obrazki();
+	
+	
+	public void rysujPlansze(Graphics g){
+		
+		for(int i=0; i<Plansze.planszaa.length;i++)
+		{
+	for(int j=0; j<Plansze.planszaa[0].length;j++)
+	{
+		switch(Plansze.planszaa[i][j])
+		{
+		case 0:
+			
+			g.drawImage(obrazki.ziemia,40*j,40*i,this);
+			break;
+		
+		case 1:
+			g.drawImage(obrazki.cegla,40*j,40*i,this);
+		break;
+		case 2:
+			g.drawImage(obrazki.gleba,40*j,40*i,this);
+			break;
+		case 3:
+			g.drawImage(obrazki.ziemia,40*j,40*i,this);
+			
+			break;
+		case 4:
+			g.drawImage(obrazki.ziemia,40*j,40*i,this);
+			g.drawImage(obrazki.mario,40*j,40*i,this);
+			
+			break;
+		case 5:
+			g.drawImage(obrazki.gleba,40*j,40*i,this);
+			g.drawImage(obrazki.diament,40*j,40*i,this);
+			break;
+		
+				}
+			}
+		}
+		
+		
+
+	}
+	
+	
+	
+	public boolean imageUpdate(Image arg0, int arg1, int arg2, int arg3,
+			int arg4, int arg5) {
+		
+		return false;
+	}
+}
+
