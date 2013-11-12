@@ -1,0 +1,28 @@
+package boulderDash;
+
+
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class Obrazki {
+
+	
+	Image ziemia;
+	Image cegla;
+	Image diament;
+	Image mario;
+	Image gleba;
+
+	public Obrazki()
+	{
+		cegla = new ImageIcon(new ImageIcon(getClass().getResource("image/cegla.jpg")).getImage()).getImage();
+		gleba = new ImageIcon(new ImageIcon(getClass().getResource("image/gleba.jpg")).getImage()).getImage();
+		diament = new ImageIcon(new ImageIcon(getClass().getResource("image/diament.png")).getImage()).getImage();
+		ziemia = new ImageIcon(new ImageIcon(getClass().getResource("image/ziemia.jpg")).getImage()).getImage();
+		mario = new ImageIcon(new ImageIcon(getClass().getResource("image/mario.png")).getImage()).getImage();
+
+	}
+
+}
+
