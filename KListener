@@ -1,0 +1,43 @@
+package boulderDash;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class KListener implements KeyListener {
+
+	RuchWGrze ruchWGrze = new RuchWGrze();
+	
+
+	public void keyPressed(KeyEvent arg0) {
+	
+		
+		switch(arg0.getKeyCode())
+		{
+		case 37:
+			ruchWGrze.ruszaj('l');
+			break;
+		case 38:
+			ruchWGrze.ruszaj('g');
+			break;
+		case 39:
+			ruchWGrze.ruszaj('p');
+			break;
+		case 40:
+			ruchWGrze.ruszaj('d');
+			break;
+		
+		}
+	}
+
+	
+	public void keyReleased(KeyEvent arg0) {
+		
+		
+	}
+
+	
+	public void keyTyped(KeyEvent arg0) {
+		
+		
+	}
+}
