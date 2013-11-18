@@ -1,0 +1,121 @@
+package boulderDash;
+
+
+import java.util.TimerTask;
+
+public class RuchWGrze extends TimerTask {
+	
+	
+	
+static	int poz1=12;
+static	int poz2=17;
+Plansze plansze = new Plansze();
+	
+	public void run(){
+
+	}
+
+
+	public void ruszaj(char gdzie){
+		
+		
+		
+		switch(gdzie)
+		{
+			
+			case 'l':
+				if (Plansze.planszaa[poz1][poz2-1]==0)
+				{
+					Plansze.planszaa[poz1][poz2-1]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz2--;
+				}
+				else if (Plansze.planszaa[poz1][poz2-1]==2)
+				{
+					Plansze.planszaa[poz1][poz2-1]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz2--;
+				}
+				else if (Plansze.planszaa[poz1][poz2-1]==5)
+				{
+					Plansze.planszaa[poz1][poz2-1]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz2--;		
+				}
+
+				break;
+				
+			case 'p':
+				if (Plansze.planszaa[poz1][poz2+1]==0)
+				{
+					Plansze.planszaa[poz1][poz2+1]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz2++;
+					
+				}
+				else if (Plansze.planszaa[poz1][poz2+1]==5)
+				{
+					Plansze.planszaa[poz1][poz2+1]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz2++;
+				}
+				
+
+				break;
+				
+			case 'g':
+				if (Plansze.planszaa[poz1-1][poz2]==0)
+				{
+					Plansze.planszaa[poz1-1][poz2]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz1--;
+					
+				}
+				
+				else if (Plansze.planszaa[poz1-1][poz2]==2)
+				{
+					Plansze.planszaa[poz1-1][poz2]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz1--;
+					
+				}
+				else if (Plansze.planszaa[poz1-1][poz2]==5)
+				{
+					Plansze.planszaa[poz1-1][poz2]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz1--;
+				}
+				break;
+				
+			case 'd':
+				if (Plansze.planszaa[poz1+1][poz2]==0)
+				{
+					Plansze.planszaa[poz1+1][poz2]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz1++;
+					
+				}
+				
+				else if (Plansze.planszaa[poz1+1][poz2]==2)
+				{
+					Plansze.planszaa[poz1+1][poz2]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz1++;
+					
+				}
+				else if (Plansze.planszaa[poz1+1][poz2]==5)
+				{
+					Plansze.planszaa[poz1+1][poz2]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz1++;	
+				}
+				
+					break;
+				}
+				
+
+	
+	BoulderDash.gra.repaint();
+		
+	}
+}
