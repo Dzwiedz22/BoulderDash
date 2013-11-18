@@ -22,10 +22,13 @@ import javax.swing.JPanel;
 		
 		Image bufor;
 		Graphics bg;
+		
+		KListener k = new KListener();
 		 
 		public BoulderDash(){
 			
 			gra = this;
+			this.addKeyListener(k);
 			
 			JFrame okno = new JFrame("Boulder Dash");
 			JPanel panel = (JPanel)okno.getContentPane();
