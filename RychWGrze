@@ -9,6 +9,9 @@ public class RuchWGrze extends TimerTask {
 	
 static	int poz1=12;
 static	int poz2=17;
+static	int iloscDiamentow=15;
+static	int zjedzoneDiamenty=0; 
+static	int dx=1;
 Plansze plansze = new Plansze();
 	
 	public void run(){
@@ -36,13 +39,29 @@ Plansze plansze = new Plansze();
 					Plansze.planszaa[poz1][poz2]=0;
 					poz2--;
 				}
+
 				else if (Plansze.planszaa[poz1][poz2-1]==5)
 				{
 					Plansze.planszaa[poz1][poz2-1]=4;
 					Plansze.planszaa[poz1][poz2]=0;
-					poz2--;		
+					poz2--;
+					zjedzoneDiamenty++;		
 				}
-
+				
+				
+				else if (Plansze.planszaa[poz1][poz2-1]==6&&(zjedzoneDiamenty>=15))
+				{	
+					
+					plansze.zrobPlanszee(dx);
+					
+					poz1=12;
+					poz2=17;
+					Plansze.planszaa[poz1][poz2]=2 ;
+					Plansze.planszaa[poz1][poz2-1]=4 ;
+					zjedzoneDiamenty=0;
+					poz2--;
+					dx++;
+				}
 				break;
 				
 			case 'p':
@@ -53,13 +72,32 @@ Plansze plansze = new Plansze();
 					poz2++;
 					
 				}
-				else if (Plansze.planszaa[poz1][poz2+1]==5)
+				else if (Plansze.planszaa[poz1][poz2+1]==2)
 				{
 					Plansze.planszaa[poz1][poz2+1]=4;
 					Plansze.planszaa[poz1][poz2]=0;
 					poz2++;
 				}
+
+				else if (Plansze.planszaa[poz1][poz2+1]==5)
+				{
+					Plansze.planszaa[poz1][poz2+1]=4;
+					Plansze.planszaa[poz1][poz2]=0;
+					poz2++;
+					zjedzoneDiamenty++;
+				}
 				
+				else if (Plansze.planszaa[poz1][poz2+1]==6&&(zjedzoneDiamenty>=15))
+				{
+					plansze.zrobPlanszee(dx);
+					poz1=12;
+					poz2=17;
+					Plansze.planszaa[poz1][poz2]=2 ;
+					Plansze.planszaa[poz1][poz2+1]=4 ;
+					zjedzoneDiamenty=0;
+					poz2++;
+					dx++;	
+				}
 
 				break;
 				
@@ -79,11 +117,27 @@ Plansze plansze = new Plansze();
 					poz1--;
 					
 				}
+
 				else if (Plansze.planszaa[poz1-1][poz2]==5)
 				{
 					Plansze.planszaa[poz1-1][poz2]=4;
 					Plansze.planszaa[poz1][poz2]=0;
 					poz1--;
+					zjedzoneDiamenty++;
+				}
+				
+				else if (Plansze.planszaa[poz1-1][poz2]==6&&(zjedzoneDiamenty>=15))
+				{
+					
+					plansze.zrobPlanszee(dx);
+					
+					poz1=12;
+					poz2=17;
+					Plansze.planszaa[poz1][poz2]=2 ;
+					Plansze.planszaa[poz1-1][poz2]=4 ;
+					zjedzoneDiamenty=0;
+					poz1--;
+					dx++;
 				}
 				break;
 				
@@ -103,13 +157,30 @@ Plansze plansze = new Plansze();
 					poz1++;
 					
 				}
+
 				else if (Plansze.planszaa[poz1+1][poz2]==5)
 				{
 					Plansze.planszaa[poz1+1][poz2]=4;
 					Plansze.planszaa[poz1][poz2]=0;
-					poz1++;	
+					poz1++;
+					zjedzoneDiamenty++;
 				}
 				
+				
+				else if (Plansze.planszaa[poz1+1][poz2]==6&&(zjedzoneDiamenty>=15))
+				{
+					
+					plansze.zrobPlanszee(dx);
+					
+					poz1=12;
+					poz2=17;
+					Plansze.planszaa[poz1][poz2]=2 ;
+					Plansze.planszaa[poz1+1][poz2]=4 ;
+					zjedzoneDiamenty=0;
+					poz1++;
+					dx++;
+
+				}
 					break;
 				}
 				
