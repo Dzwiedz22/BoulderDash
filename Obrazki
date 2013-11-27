@@ -13,6 +13,9 @@ public class Obrazki {
 	Image diament;
 	Image mario;
 	Image gleba;
+	Image brama;
+	Image brama1;
+	Image kamien;
 
 	public Obrazki()
 	{
@@ -21,7 +24,9 @@ public class Obrazki {
 		diament = new ImageIcon(new ImageIcon(getClass().getResource("image/diament.png")).getImage()).getImage();
 		ziemia = new ImageIcon(new ImageIcon(getClass().getResource("image/ziemia.jpg")).getImage()).getImage();
 		mario = new ImageIcon(new ImageIcon(getClass().getResource("image/mario.png")).getImage()).getImage();
-
+		brama = new ImageIcon(new ImageIcon(getClass().getResource("image/brama.jpg")).getImage()).getImage();
+		brama1 = new ImageIcon(new ImageIcon(getClass().getResource("image/bramaa.jpg")).getImage()).getImage();
+		kamien = new ImageIcon(new ImageIcon(getClass().getResource("image/kamien.png")).getImage()).getImage();
 	}
 
 }
