@@ -8,6 +8,7 @@ public class RysowaniePlanszy implements ImageObserver {
 
 	Plansze plansze = new Plansze();
 	Obrazki obrazki = new Obrazki();
+	RuchWGrze ruch = new RuchWGrze();
 	
 	
 	public void rysujPlansze(Graphics g){
@@ -31,6 +32,7 @@ public class RysowaniePlanszy implements ImageObserver {
 			break;
 		case 3:
 			g.drawImage(obrazki.ziemia,40*j,40*i,this);
+			g.drawImage(obrazki.kamien,40*j,40*i,this);
 			
 			break;
 		case 4:
@@ -42,7 +44,18 @@ public class RysowaniePlanszy implements ImageObserver {
 			g.drawImage(obrazki.gleba,40*j,40*i,this);
 			g.drawImage(obrazki.diament,40*j,40*i,this);
 			break;
-		
+		case 6:
+			g.drawImage(obrazki.brama1,40*j,40*i,this);
+			if( RuchWGrze.zjedzoneDiamenty<RuchWGrze.iloscDiamentow)
+			{
+			break;
+			}
+			else if( RuchWGrze.zjedzoneDiamenty>=RuchWGrze.iloscDiamentow)
+			{
+			
+			g.drawImage(obrazki.brama,40*j,40*i,this);
+			break;
+			}
 				}
 			}
 		}
