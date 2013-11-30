@@ -1,0 +1,33 @@
+package boulderDash;
+
+	
+
+public class Game implements Runnable {
+  private Thread thread =null;
+  private int speed;
+ 
+  public Game(){
+    speed = 10;
+  }
+  public void start(){
+                if(thread==null){
+                        thread = new Thread(this);
+                        thread.start();
+                }
+        }
+public void run() {
+                while(thread!=null){
+                	
+                	   new SpadajaceGlazy();
+                	
+                	
+      try { 
+    	  Thread.sleep(speed); 
+    	  }
+      catch (InterruptedException e) {}
+ }
+
+}
+
+}
+
