@@ -1,0 +1,100 @@
+package boulderDash;
+
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+
+
+public class SpadajaceGlazy extends TimerTask {
+
+	
+	Plansze plan =  new Plansze();
+	Timer timer = new Timer();
+	RuchWGrze ruch = new RuchWGrze();
+	RysowaniePlanszy rys = new RysowaniePlanszy();
+	
+	public void run() {
+
+	}
+	 
+	public SpadajaceGlazy(){
+		
+		
+		final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+	    service.scheduleWithFixedDelay(new Runnable()
+	      {
+	    	;
+	        public void run()
+	        {
+	        	 try {
+	        		 
+	        		 for(int i=0; i<Plansze.planszaa.length; i++)
+	 	    		{
+	 	    			for(int j=0; j<Plansze.planszaa[0].length; j++)
+	 	    			{
+	 	    				if(Plansze.planszaa[i][j]==3)
+	 	    				{
+	 	    					
+	 	    					int poz7 = i;
+	 	    					int poz8 = j;
+	 	    					if(Plansze.planszaa[poz7][poz8]==3 && Plansze.planszaa[poz7+1][poz8]==0)
+	 	    					{
+	 	    						 Thread.sleep(30);
+	 	    						 Plansze.planszaa[poz7][poz8]=0;
+	 	    						 Plansze.planszaa[poz7+1][poz8]=3;
+	 	    						 poz7++;
+	 	    						 }
+	 	    					
+	 	    					else if (Plansze.planszaa[poz7][poz8]==3 && Plansze.planszaa[poz7+1][poz8]==4)
+	 	    					{
+	 	    						Thread.sleep(300);
+	 	    						if (Plansze.planszaa[poz7][poz8]==3 && Plansze.planszaa[poz7+1][poz8]==4)
+	 	    						{
+	 	    						 Plansze.planszaa[poz7][poz8]=0;
+	 	    						 Plansze.planszaa[poz7+1][poz8]=3;
+	 	    						 poz7++;
+	 	    						 RuchWGrze.poz1 = 13;
+	 	    						 RuchWGrze.poz2 = 15;	
+	 	    						 Plansze.planszaa[RuchWGrze.poz1][RuchWGrze.poz2]=4;
+	 	    						}
+	 	    						
+	 	    					}
+	 	    					else if(Plansze.planszaa[poz7][poz8]==3 && Plansze.planszaa[poz7+1][poz8]==5)
+	 	    					{
+	 	    						 Thread.sleep(100);
+	 	    						 Plansze.planszaa[poz7][poz8]=0;
+	 	    						 Plansze.planszaa[poz7+1][poz8]=3;
+	 	    						 poz7++;
+	 	    						
+	 	    					}
+	 	    					
+	 	    				}
+
+	 	    		}
+						
+	 	    	    
+	 	        }	 
+						
+					
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
+	        	
+	        }   
+	        }, 0, 1 , TimeUnit.SECONDS);
+	   
+				
+	}
+	
+	} 
+	
+		
+	
+
+
+	
