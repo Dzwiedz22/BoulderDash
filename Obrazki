@@ -1,6 +1,7 @@
 package boulderDash;
 
 
+
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -12,21 +13,30 @@ public class Obrazki {
 	Image cegla;
 	Image diament;
 	Image mario;
+	Image kamien;
 	Image gleba;
 	Image brama;
 	Image brama1;
-	Image kamien;
-
+	Image klucz;
+	Image drzwi;
+	Image frame;
 	public Obrazki()
 	{
 		cegla = new ImageIcon(new ImageIcon(getClass().getResource("image/cegla.jpg")).getImage()).getImage();
 		gleba = new ImageIcon(new ImageIcon(getClass().getResource("image/gleba.jpg")).getImage()).getImage();
+		kamien = new ImageIcon(new ImageIcon(getClass().getResource("image/kamien.png")).getImage()).getImage();
 		diament = new ImageIcon(new ImageIcon(getClass().getResource("image/diament.png")).getImage()).getImage();
 		ziemia = new ImageIcon(new ImageIcon(getClass().getResource("image/ziemia.jpg")).getImage()).getImage();
 		mario = new ImageIcon(new ImageIcon(getClass().getResource("image/mario.png")).getImage()).getImage();
 		brama = new ImageIcon(new ImageIcon(getClass().getResource("image/brama.jpg")).getImage()).getImage();
 		brama1 = new ImageIcon(new ImageIcon(getClass().getResource("image/bramaa.jpg")).getImage()).getImage();
-		kamien = new ImageIcon(new ImageIcon(getClass().getResource("image/kamien.png")).getImage()).getImage();
+		klucz = new ImageIcon(new ImageIcon(getClass().getResource("image/klucz.jpg")).getImage()).getImage();
+		drzwi = new ImageIcon(new ImageIcon(getClass().getResource("image/drzwi.jpg")).getImage()).getImage();
+		frame = new ImageIcon(new ImageIcon(getClass().getResource("image/frame.png")).getImage()).getImage();
+
+
+
+
 	}
 
 }
