@@ -1,8 +1,11 @@
 package boulderDash;
 
+
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
+
 
 public class RysowaniePlanszy implements ImageObserver {
 
@@ -11,7 +14,9 @@ public class RysowaniePlanszy implements ImageObserver {
 	RuchWGrze ruch = new RuchWGrze();
 	
 	
+	
 	public void rysujPlansze(Graphics g){
+		
 		
 		for(int i=0; i<Plansze.planszaa.length;i++)
 		{
@@ -56,12 +61,41 @@ public class RysowaniePlanszy implements ImageObserver {
 			g.drawImage(obrazki.brama,40*j,40*i,this);
 			break;
 			}
+			case 7:
+				g.drawImage(obrazki.klucz,40*j,40*i,this);
+				break;
+			case 8:
+				g.drawImage(obrazki.drzwi,40*j,40*i,this);
+				if(RuchWGrze.zjedzoneKlucze==1)
+				{
+					g.drawImage(obrazki.ziemia,40*j,40*i,this);
+				}
+				break;
+			case 9:
+				g.drawImage(obrazki.cegla,40*j,40*i,this);
+				
+				break;	
+			case 10:
+				g.drawImage(obrazki.drzwi,40*j,40*i,this);
+				if(RuchWGrze.zjedzoneKlucze==2)
+				{
+					g.drawImage(obrazki.ziemia,40*j,40*i,this);
+				}
+				break;
+			case 11:
+				g.drawImage(obrazki.ziemia,40*j,40*i,this);
+				break;
+			case 12:
+				g.drawImage(obrazki.drzwi,40*j,40*i,this);
+				if(RuchWGrze.zjedzonaZiemia>=151)
+				{
+					g.drawImage(obrazki.ziemia,40*j,40*i,this);
+				}
+				break;
 				}
 			}
 		}
-		
-		
-
+			
 	}
 	
 	
@@ -71,5 +105,6 @@ public class RysowaniePlanszy implements ImageObserver {
 		
 		return false;
 	}
+	
 }
 
