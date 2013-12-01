@@ -12,6 +12,12 @@ static	int poz2=17;
 static	int iloscDiamentow=15;
 static	int zjedzoneDiamenty=0; 
 static	int dx=1;
+static int zjedzonaZiemia=0;
+static int liczdiamenty=0;
+static	int zjedzoneKlucze=0;
+static	int iloscKluczy=1;
+static int liczruch=0;
+static int iloscZiemi=151;
 Plansze plansze = new Plansze();
 	
 	public void run(){
@@ -26,162 +32,414 @@ Plansze plansze = new Plansze();
 		switch(gdzie)
 		{
 			
-			case 'l':
-				if (Plansze.planszaa[poz1][poz2-1]==0)
-				{
-					Plansze.planszaa[poz1][poz2-1]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz2--;
-				}
-				else if (Plansze.planszaa[poz1][poz2-1]==2)
-				{
-					Plansze.planszaa[poz1][poz2-1]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz2--;
-				}
-
-				else if (Plansze.planszaa[poz1][poz2-1]==5)
-				{
-					Plansze.planszaa[poz1][poz2-1]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz2--;
-					zjedzoneDiamenty++;		
-				}
+		case 'l':
+			if (Plansze.planszaa[poz1][poz2-1]==0)
+			{
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2--;
+			}
+			
+			else if (Plansze.planszaa[poz1][poz2-1]==3&&(Plansze.planszaa[poz1][poz2-2]==0))
+			{
+				Plansze.planszaa[poz1][poz2-2]=3;
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2--;
+				
+			}
+			else if (Plansze.planszaa[poz1][poz2-1]==0 &&(Plansze.planszaa[poz1-1][poz2-1]==3)||(Plansze.planszaa[poz1][poz2-1]==3))
+			{	
+				
+			}
+			else if (Plansze.planszaa[poz1][poz2-1]==2)
+			{
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2--;
+				zjedzonaZiemia++;
+			}
+			else if (Plansze.planszaa[poz1][poz2-1]==5)
+			{
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2--;
+				zjedzoneDiamenty++;
+				liczdiamenty++;			
+			}
+			
+			
+			else if (Plansze.planszaa[poz1][poz2-1]==6&&(zjedzoneDiamenty>=15))
+			{	
+				
+				plansze.zrobPlanszee(dx);
+				
+				poz1=12;
+				poz2=17;
+				Plansze.planszaa[poz1][poz2]=2 ;
+				Plansze.planszaa[poz1][poz2-1]=4 ;
+				zjedzoneDiamenty=0;
+				zjedzoneKlucze=0;
+				poz2--;
+				dx++;
+				zjedzonaZiemia=0;
+			}
+			
+			else if (Plansze.planszaa[poz1][poz2-1]==7)
+			{
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2--;
+				zjedzoneKlucze++;
+				
+			}
+			else if (Plansze.planszaa[poz1][poz2-1]==8&&(zjedzoneKlucze==1))
+			{
+				
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=8;
+				poz2--;
+				
+			}
+			else if (Plansze.planszaa[poz1][poz2-1]==9&&(zjedzoneKlucze==2))
+			{
+				
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2--;
 				
 				
-				else if (Plansze.planszaa[poz1][poz2-1]==6&&(zjedzoneDiamenty>=15))
-				{	
-					
-					plansze.zrobPlanszee(dx);
-					
-					poz1=12;
-					poz2=17;
-					Plansze.planszaa[poz1][poz2]=2 ;
-					Plansze.planszaa[poz1][poz2-1]=4 ;
-					zjedzoneDiamenty=0;
-					poz2--;
-					dx++;
-				}
-				break;
+			}
+			else if (Plansze.planszaa[poz1][poz2-1]==10&&(zjedzoneKlucze==2))
+			{
 				
-			case 'p':
-				if (Plansze.planszaa[poz1][poz2+1]==0)
-				{
-					Plansze.planszaa[poz1][poz2+1]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz2++;
-					
-				}
-				else if (Plansze.planszaa[poz1][poz2+1]==2)
-				{
-					Plansze.planszaa[poz1][poz2+1]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz2++;
-				}
-
-				else if (Plansze.planszaa[poz1][poz2+1]==5)
-				{
-					Plansze.planszaa[poz1][poz2+1]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz2++;
-					zjedzoneDiamenty++;
-				}
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=10;
+				poz2--;
 				
-				else if (Plansze.planszaa[poz1][poz2+1]==6&&(zjedzoneDiamenty>=15))
-				{
-					plansze.zrobPlanszee(dx);
-					poz1=12;
-					poz2=17;
-					Plansze.planszaa[poz1][poz2]=2 ;
-					Plansze.planszaa[poz1][poz2+1]=4 ;
-					zjedzoneDiamenty=0;
-					poz2++;
-					dx++;	
-				}
-
-				break;
+			}
+			else if (Plansze.planszaa[poz1][poz2-1]==11)
+			{	
+				Plansze.planszaa[poz1][poz2]=0 ;
+				Plansze.planszaa[poz1][poz2-1]=0 ;
 				
-			case 'g':
-				if (Plansze.planszaa[poz1-1][poz2]==0)
-				{
-					Plansze.planszaa[poz1-1][poz2]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz1--;
+				poz1=7;
+				poz2=12;
+				Plansze.planszaa[poz1][poz2]=4 ;
+				Plansze.planszaa[poz1][poz2-1]=0 ;
 					
-				}
+			}
+			else if (Plansze.planszaa[poz1][poz2-1]==12&&(zjedzonaZiemia>=151))
+			{
 				
-				else if (Plansze.planszaa[poz1-1][poz2]==2)
-				{
-					Plansze.planszaa[poz1-1][poz2]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz1--;
-					
-				}
-
-				else if (Plansze.planszaa[poz1-1][poz2]==5)
-				{
-					Plansze.planszaa[poz1-1][poz2]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz1--;
-					zjedzoneDiamenty++;
-				}
+				Plansze.planszaa[poz1][poz2-1]=4;
+				Plansze.planszaa[poz1][poz2]=12;
+				poz2--;
 				
-				else if (Plansze.planszaa[poz1-1][poz2]==6&&(zjedzoneDiamenty>=15))
-				{
-					
-					plansze.zrobPlanszee(dx);
-					
-					poz1=12;
-					poz2=17;
-					Plansze.planszaa[poz1][poz2]=2 ;
-					Plansze.planszaa[poz1-1][poz2]=4 ;
-					zjedzoneDiamenty=0;
-					poz1--;
-					dx++;
-				}
-				break;
+			}
+			liczruch++;
+			break;
+			
+		case 'p':
+			if (Plansze.planszaa[poz1][poz2+1]==0)
+			{
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2++;
 				
-			case 'd':
-				if (Plansze.planszaa[poz1+1][poz2]==0)
-				{
-					Plansze.planszaa[poz1+1][poz2]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz1++;
-					
-				}
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==3&&(Plansze.planszaa[poz1][poz2+2]==0))
+			{
+				Plansze.planszaa[poz1][poz2+2]=3;
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2++;
+			}
+			
+			else if (Plansze.planszaa[poz1][poz2+1]==0 &&(Plansze.planszaa[poz1-1][poz2+1]==3)||(Plansze.planszaa[poz1][poz2+1]==3))
+			{	
+				poz2++;
+				poz1--;
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==2)
+			{
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2++;
+				zjedzonaZiemia++;
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==5)
+			{
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2++;
+				zjedzoneDiamenty++;
+				liczdiamenty++;
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==6&&(zjedzoneDiamenty>=15))
+			{
+				plansze.zrobPlanszee(dx);
+				poz1=12;
+				poz2=17;
+				Plansze.planszaa[poz1][poz2]=2 ;
+				Plansze.planszaa[poz1][poz2+1]=4 ;
+				zjedzoneDiamenty=0;
+				zjedzoneKlucze=0;
+				poz2++;
+				dx++;
+				zjedzonaZiemia=0;
 				
-				else if (Plansze.planszaa[poz1+1][poz2]==2)
-				{
-					Plansze.planszaa[poz1+1][poz2]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz1++;
-					
-				}
-
-				else if (Plansze.planszaa[poz1+1][poz2]==5)
-				{
-					Plansze.planszaa[poz1+1][poz2]=4;
-					Plansze.planszaa[poz1][poz2]=0;
-					poz1++;
-					zjedzoneDiamenty++;
-				}
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==9&&(zjedzoneKlucze>=2))
+			{
+				
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				
+				poz2++;
+				
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==7)
+			{
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz2++;
+				zjedzoneKlucze++;
+				
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==8&&(zjedzoneKlucze==1))
+			{
+				
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=8;
+				poz2++;
+				
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==10&&(zjedzoneKlucze==2))
+			{
+				
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=10;
+				poz2++;
+				
+			}
+			else if (Plansze.planszaa[poz1][poz2+1]==11)
+			{	
+				Plansze.planszaa[poz1][poz2]=0 ;
+				Plansze.planszaa[poz1][poz2+1]=0 ;
+				
+				poz1=7;
+				poz2=12;
+				Plansze.planszaa[poz1][poz2]=4 ;
+				Plansze.planszaa[poz1][poz2+1]=0 ;
 				
 				
-				else if (Plansze.planszaa[poz1+1][poz2]==6&&(zjedzoneDiamenty>=15))
-				{
-					
-					plansze.zrobPlanszee(dx);
-					
-					poz1=12;
-					poz2=17;
-					Plansze.planszaa[poz1][poz2]=2 ;
-					Plansze.planszaa[poz1+1][poz2]=4 ;
-					zjedzoneDiamenty=0;
-					poz1++;
-					dx++;
-
-				}
-					break;
+			}
+			
+			else if (Plansze.planszaa[poz1][poz2+1]==12&&(zjedzonaZiemia>=151))
+			{
+				
+				Plansze.planszaa[poz1][poz2+1]=4;
+				Plansze.planszaa[poz1][poz2]=12;
+				poz2++;
+				
+			}
+			liczruch++;
+			break;
+				
+		case 'g':
+			if (Plansze.planszaa[poz1-1][poz2]==0)
+			{
+				Plansze.planszaa[poz1-1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz1--;
+				
+			}
+			
+			else if (Plansze.planszaa[poz1-1][poz2]==2)
+			{
+				Plansze.planszaa[poz1-1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz1--;
+				zjedzonaZiemia++;
+			}
+			else if (Plansze.planszaa[poz1-1][poz2]==5)
+			{
+				Plansze.planszaa[poz1-1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz1--;
+				zjedzoneDiamenty++;
+				liczdiamenty++;
+			}
+			
+			else if (Plansze.planszaa[poz1-1][poz2]==6&&(zjedzoneDiamenty>=15))
+			{
+				
+				plansze.zrobPlanszee(dx);
+				
+				poz1=12;
+				poz2=17;
+				Plansze.planszaa[poz1][poz2]=2 ;
+				Plansze.planszaa[poz1-1][poz2]=4 ;
+				zjedzoneDiamenty=0;
+				zjedzoneKlucze=0;
+				poz1--;
+				dx++;
+				zjedzonaZiemia=0;
+			}
+			else if (Plansze.planszaa[poz1-1][poz2]==8&&(zjedzoneKlucze==1))
+			{
+				
+				Plansze.planszaa[poz1-1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=8;
+				poz1--;
+				
+			}
+			else if (Plansze.planszaa[poz1-1][poz2]==7)
+			{
+				Plansze.planszaa[poz1-1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz1--;
+				zjedzoneKlucze++;
+				
+			}
+			else if (Plansze.planszaa[poz1-1][poz2]==9&&(zjedzoneKlucze>=2))
+			{
+				
+				Plansze.planszaa[poz1-1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				
+				poz1--;
+				
+			}
+			else if (Plansze.planszaa[poz1-1][poz2]==10&&(zjedzoneKlucze==2))
+			{
+				
+				Plansze.planszaa[poz1-1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=10;
+				poz1--;
+				
+			}
+			else if (Plansze.planszaa[poz1-1][poz2]==11)
+			{	
+				Plansze.planszaa[poz1][poz2]=0 ;
+				Plansze.planszaa[poz1-1][poz2]=0 ;
+				
+				poz1=7;
+				poz2=12;
+				Plansze.planszaa[poz1][poz2]=4 ;
+				Plansze.planszaa[poz1-1][poz2]=0 ;
+				
+				
+			}
+			else if (Plansze.planszaa[poz1-1][poz2]==12&&(zjedzonaZiemia==151))
+			{
+				
+				Plansze.planszaa[poz1-1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=12;
+				poz1--;
+				
+			}
+			liczruch++;
+			break;
+				
+		case 'd':
+			if (Plansze.planszaa[poz1+1][poz2]==0)
+			{
+				Plansze.planszaa[poz1+1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz1++;
+				
+			}
+			
+			else if (Plansze.planszaa[poz1+1][poz2]==2)
+			{
+				Plansze.planszaa[poz1+1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz1++;
+				zjedzonaZiemia++;
+			}
+			else if (Plansze.planszaa[poz1+1][poz2]==5)
+			{
+				Plansze.planszaa[poz1+1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz1++;
+				zjedzoneDiamenty++;
+				liczdiamenty++;
+			
+			}
+			
+			
+			else if (Plansze.planszaa[poz1+1][poz2]==6&&(zjedzoneDiamenty>=15))
+			{
+				
+				plansze.zrobPlanszee(dx);
+				
+				poz1=12;
+				poz2=17;
+				Plansze.planszaa[poz1][poz2]=2 ;
+				Plansze.planszaa[poz1+1][poz2]=4 ;
+				zjedzoneDiamenty=0;
+				zjedzoneKlucze=0;
+				poz1++;
+				dx++;
+				zjedzonaZiemia=0;
+			}
+			else if (Plansze.planszaa[poz1+1][poz2]==7)
+			{
+				Plansze.planszaa[poz1+1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				poz1++;
+				zjedzoneKlucze++;
+				
+			}
+			else if (Plansze.planszaa[poz1+1][poz2]==8&&(zjedzoneKlucze==1))
+			{
+				
+				Plansze.planszaa[poz1+1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=8;
+				poz1++;
+				
+			}
+			else if (Plansze.planszaa[poz1+1][poz2]==9&&(zjedzoneKlucze>=2))
+			{
+				
+				Plansze.planszaa[poz1+1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=0;
+				
+				poz1++;
+				
+			}
+			else if (Plansze.planszaa[poz1+1][poz2]==10&&(zjedzoneKlucze==2))
+			{
+				
+				Plansze.planszaa[poz1+1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=10;
+				poz1++;
+				
+			}
+			else if (Plansze.planszaa[poz1+1][poz2]==11)
+			{	
+				Plansze.planszaa[poz1][poz2]=0 ;
+				Plansze.planszaa[poz1+1][poz2]=0 ;
+				
+				poz1=7;
+				poz2=12;
+				Plansze.planszaa[poz1][poz2]=4 ;
+				Plansze.planszaa[poz1+1][poz2]=0 ;
+				
+				
+			}
+			else if (Plansze.planszaa[poz1+1][poz2]==12&&(zjedzonaZiemia==iloscZiemi))
+			{
+				
+				Plansze.planszaa[poz1+1][poz2]=4;
+				Plansze.planszaa[poz1][poz2]=12;
+				poz1++;
+				
+			}
+			liczruch++;
+			break;
 				}
 				
 
